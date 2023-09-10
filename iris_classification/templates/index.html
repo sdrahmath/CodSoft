@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Iris Project</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link href="{{ url_for('static', filename='css/iris.css') }}" rel="stylesheet">
+       
+        
+
+    </head>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        body {
+            background-image: url('{{ url_for('static', filename='iris-flower.jpg') }}');
+            background-size: cover; /* Adjust the background image size */
+            background-repeat: no-repeat; /* Prevent repeating of the image */
+        }
+
+        .setosa-card {
+            background-image: url('{{ url_for('static', filename='Irissetosa1.jpg') }}');
+            background-size: cover; /* Adjust the background image size */
+            background-repeat: no-repeat; /* Prevent repeating of the image */
+        }
+
+        .virginica-card {
+            background-image: url('{{ url_for('static', filename='Iris_virginica.jpg') }}');
+            background-size: cover; /* Adjust the background image size */
+            background-repeat: no-repeat; /* Prevent repeating of the image */
+        }
+
+        .versicolor-card {
+            background-image: url('{{ url_for('static', filename='versi.jpg') }}');
+            background-size: cover; /* Adjust the background image size */
+            background-repeat: no-repeat; /* Prevent repeating of the image */
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+        .bold-stroke {
+            -webkit-text-stroke: 0.5px black; 
+            text-stroke: 2px black; /* Standard property */
+            font-weight: bold;
+            color: white; /* Text color */
+        }
+        .custom-list {
+            font-size: 18px; /* Adjust the font size as needed */
+        }
+        .centered-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .header-container {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body > 
+    
+        
+    <div class="header-container">
+        <div class="container">
+            <div class="centered-text">
+                <h5 class="my-0 mr-md-auto font-weight-normal">Project IRIS Classification</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="container p-3 my-3 bg-blue text-white">
+        {% if setosa %}
+            <div class="alert alert-primary">{{setosa}}</div>
+        {% elif versicolor %}
+            <div class="alert alert-primary">{{versicolor}}</div>
+        {% elif virginica %}
+            <div class="alert alert-primary">{{virginica}}</div>
+        {% endif %}
+        <form class="form-group" action="/" method="POST">
+            <label for="sepallength">Sepal Length :</label>
+            <input class="form-control" type="number" name="sepallength">
+            <label for="sepalwidth">Sepal Width :</label>
+            <input class="form-control" type="number" name="sepalwidth">
+            <label for="petallength">Petal Length :</label>
+            <input class="form-control" type="number" name="petallength">
+            <label for="petalwidth">Petal Width :</label>
+            <input class="form-control" type="number" name="petalwidth">
+            <br>
+            <button class="btn btn-dark" type="submit" name="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="card-deck mb-3 text-center">
+            <div class="card mb-4 shadow-sm setosa-card">
+                <div class="card-header">
+                    <h4 class="my-0 bold-stroke">Setosa</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-5 custom-list">
+                        <li class="bold-stroke">Iris setosa, is a species in the genus Iris, it is also in the subgenus Limniris and in the series Tripetalae. It is a rhizomatous perennial from a wide range across the Arctic sea, including Alaska, Maine, Canada, Russia, northeastern Asia, China, Korea and southwards to Japan.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card mb-4 shadow-sm virginica-card">
+                <div class="card-header">
+                    <h4 class="my-0 bold-stroke">Virginica</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4 custom-list">
+                        <li class="bold-stroke">Iris virginica, with the common name Virginia iris, is a perennial species of flowering plant, native to eastern North America. It is common along the coastal plain from Florida to Georgia in the Southeastern United States.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card mb-4 shadow-sm versicolor-card ">
+                <div class="card-header">
+                    <h4 class="my-0 bold-stroke">Versicolor</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4 custom-list">
+                        <li class="bold-stroke">Iris versicolor is also commonly known as the blue flag, harlequin blueflag, larger blue flag, northern blue flag, and poison flag, plus other variations of these names, and in Britain and Ireland as purple iris. It is a species of Iris native to North America, in the Eastern United States and Eastern Canada.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

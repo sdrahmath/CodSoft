@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <title>Credit Card Fraud Detection Model</title>
+</head>
+<body>
+    <h1>Credit Card Fraud Detection Model</h1>
+    <form method="POST" action="/">
+        <label for="input_df"> Check if the transaction is legitimate or fraudulent:</label><br>
+        <input type="text" id="input_df" name="input_df"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    {% if result %}
+    <p>{{ result }}</p>
+    {% endif %}
+</body>
+</html>

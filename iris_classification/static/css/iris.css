@@ -1,0 +1,39 @@
+/* iris.css */
+.bd-placeholder-img {
+    font-size: 2.126rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body {
+    background-image: url("{{ url_for('static', filename='iris-flower.jpg') }}");
+    background-size: cover; /* Adjust the background image size */
+    background-repeat: no-repeat; /* Prevent repeating of the image */
+}
+
+.setosa-card {
+    background-image: url("{{ url_for('static', filename='Irissetosa1.jpg') }}");
+    background-size: cover; /* Adjust the background image size */
+    background-repeat: no-repeat; /* Prevent repeating of the image */
+}
+
+.virginica-card {
+    background-image: url("{{ url_for('static', filename='Iris_virginica.jpg') }}");
+    background-size: cover; /* Adjust the background image size */
+    background-repeat: no-repeat; /* Prevent repeating of the image */
+}
+
+.versicolor-card {
+    background-image: url("{{ url_for('static', filename='versi.jpg') }}");
+    background-size: cover; /* Adjust the background image size */
+    background-repeat: no-repeat; /* Prevent repeating of the image */
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 4.5rem;
+    }
+}
