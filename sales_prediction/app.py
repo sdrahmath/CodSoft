@@ -5,7 +5,7 @@ import joblib
 app = Flask(__name__)
 
 
-model = joblib.load("model.pkl")
+model = joblib.load("sales_prediction\model.pkl")
 
 @app.route("/")
 def home():
@@ -14,7 +14,7 @@ def home():
 def predict():
     tv_advertising_value = float(request.form["tv_advertising"])
     predicted = model.predict([[tv_advertising_value]])
-    predicted_sales=round(predicted[0][0], 2)
+    predicted_sales=round(predicted[0][0])
     print("Predicted Sales:",predicted_sales)
     return render_template("index.html",result=predicted_sales)
     
