@@ -22,33 +22,48 @@
         }
 
         body {
-            background-image: url('{{ url_for('static', filename='iris-flower.jpg') }}');
-            background-size: cover; /* Adjust the background image size */
-            background-repeat: no-repeat; /* Prevent repeating of the image */
+            justify-content:center;
+            align-items:center;
+            background-color:cyan;
+             /* Prevent repeating of the image */
         }
-
+        .form-control{
+            border: 2px solid black;
+            border-radius: 1.25rem;
+            width:180%;
+            height:55px;
+        }
         .setosa-card {
             background-image: url('{{ url_for('static', filename='Irissetosa1.jpg') }}');
             background-size: cover; /* Adjust the background image size */
             background-repeat: no-repeat; /* Prevent repeating of the image */
+            border-radius:50px;
         }
 
         .virginica-card {
             background-image: url('{{ url_for('static', filename='Iris_virginica.jpg') }}');
             background-size: cover; /* Adjust the background image size */
             background-repeat: no-repeat; /* Prevent repeating of the image */
+            border-radius:50px;
         }
 
         .versicolor-card {
             background-image: url('{{ url_for('static', filename='versi.jpg') }}');
             background-size: cover; /* Adjust the background image size */
             background-repeat: no-repeat; /* Prevent repeating of the image */
+            border-radius:50px;
         }
 
         @media (min-width: 768px) {
             .bd-placeholder-img-lg {
                 font-size: 3.5rem;
             }
+        }
+        
+        label{
+            color: black;
+            font-weight: bold;
+
         }
         .bold-stroke {
             -webkit-text-stroke: 0.5px black; 
@@ -65,7 +80,18 @@
             align-items: center;
             height: 100%;
         }
-
+        .text-center{
+            width:50%;
+            margin:auto;
+        }
+        .alert {
+            width: fit-content;
+        }
+        .form-groups{
+            display:flex;
+            justify-content: space-around;
+            margin-left:-104px;
+        }
         .header-container {
             background-color: #343a40;
             color: white;
@@ -80,36 +106,30 @@
     <div class="header-container">
         <div class="container">
             <div class="centered-text">
-                <h5 class="my-0 mr-md-auto font-weight-normal">Project IRIS Classification</h5>
+                <h5 class="my-0 mr-md-auto font-weight-normal mx-auto">Project IRIS Classification</h5>
             </div>
         </div>
     </div>
 
     <div class="container p-3 my-3 bg-blue text-white">
-        {% if setosa %}
-            <div class="alert alert-primary">{{setosa}}</div>
-        {% elif versicolor %}
-            <div class="alert alert-primary">{{versicolor}}</div>
-        {% elif virginica %}
-            <div class="alert alert-primary">{{virginica}}</div>
-        {% endif %}
-        <form class="form-group" action="/" method="POST">
+        
+        <form class="form-group mx-auto" action="/" method="POST">
+            <div class="form-groups"><div>
             <label for="sepallength">Sepal Length :</label>
             <input class="form-control" type="number" name="sepallength">
             <label for="sepalwidth">Sepal Width :</label>
-            <input class="form-control" type="number" name="sepalwidth">
+            <input class="form-control" type="number" name="sepalwidth"></div><div>
             <label for="petallength">Petal Length :</label>
             <input class="form-control" type="number" name="petallength">
             <label for="petalwidth">Petal Width :</label>
-            <input class="form-control" type="number" name="petalwidth">
-            <br>
-            <button class="btn btn-dark" type="submit" name="submit">Submit</button>
+            <input class="form-control" type="number" name="petalwidth"></div></div>
+            <br><div class="text-center">
+            <button class="btn btn-dark" type="submit" name="submit">Submit</button></div>
         </form>
-    </div>
-
-    <div class="container">
-        <div class="card-deck mb-3 text-center">
-            <div class="card mb-4 shadow-sm setosa-card">
+        
+        {% if setosa %}
+            <div class="alert alert-primary mx-auto">{{setosa}}</div>
+            <div class="card-deck mb-3 text-center mx-auto"><div class="card mb-4 shadow-sm setosa-card">
                 <div class="card-header">
                     <h4 class="my-0 bold-stroke">Setosa</h4>
                 </div>
@@ -118,18 +138,10 @@
                         <li class="bold-stroke">Iris setosa, is a species in the genus Iris, it is also in the subgenus Limniris and in the series Tripetalae. It is a rhizomatous perennial from a wide range across the Arctic sea, including Alaska, Maine, Canada, Russia, northeastern Asia, China, Korea and southwards to Japan.</li>
                     </ul>
                 </div>
-            </div>
-            <div class="card mb-4 shadow-sm virginica-card">
-                <div class="card-header">
-                    <h4 class="my-0 bold-stroke">Virginica</h4>
-                </div>
-                <div class="card-body">
-                    <ul class="list-unstyled mt-3 mb-4 custom-list">
-                        <li class="bold-stroke">Iris virginica, with the common name Virginia iris, is a perennial species of flowering plant, native to eastern North America. It is common along the coastal plain from Florida to Georgia in the Southeastern United States.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="card mb-4 shadow-sm versicolor-card ">
+            </div></div>
+        {% elif versicolor %}
+            <div class="alert alert-primary mx-auto">{{versicolor}}</div>
+            <div class="card-deck mb-3 text-center mx-auto"><div class="card mb-4 shadow-sm versicolor-card ">
                 <div class="card-header">
                     <h4 class="my-0 bold-stroke">Versicolor</h4>
                 </div>
@@ -138,8 +150,28 @@
                         <li class="bold-stroke">Iris versicolor is also commonly known as the blue flag, harlequin blueflag, larger blue flag, northern blue flag, and poison flag, plus other variations of these names, and in Britain and Ireland as purple iris. It is a species of Iris native to North America, in the Eastern United States and Eastern Canada.</li>
                     </ul>
                 </div>
-            </div>
-        </div>
+            </div></div>
+        {% elif virginica %}
+            <div class="alert alert-primary mx-auto">{{virginica}}</div>
+            <div class="card-deck mb-3 text-center mx-auto"><div class="card mb-4 shadow-sm virginica-card">
+                <div class="card-header">
+                    <h4 class="my-0 bold-stroke">Virginica</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4 custom-list">
+                        <li class="bold-stroke">Iris virginica, with the common name Virginia iris, is a perennial species of flowering plant, native to eastern North America. It is common along the coastal plain from Florida to Georgia in the Southeastern United States.</li>
+                    </ul>
+                </div>
+            </div></div>
+        {% endif %}
+    </div>
+
+    
+        
+            
+            
+            
+        
     </div>
     
 </body>
