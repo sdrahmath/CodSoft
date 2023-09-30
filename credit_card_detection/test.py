@@ -6,7 +6,7 @@ from flask import Flask, render_template, request
 from sklearn.model_selection import train_test_split
 
 # Load data
-data = pd.read_csv('creditcard.csv')
+data = pd.read_csv('credit_card_detection\creditcard.csv')
 
 # Separate legitimate and fraudulent transactions
 legit = data[data.Class == 0]

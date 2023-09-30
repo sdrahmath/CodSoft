@@ -1,6 +1,6 @@
 body {
-    background-color: #ffcccc; /* Baby pink background color */
-    font-family: "Times New Roman", Times, serif; /* Times New Roman font */
+    background-color: #5a88d7; /* Baby pink background color */
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Times New Roman font */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,21 +13,26 @@ h1 {
     font-weight: bold; /* Bolded title */
     margin-bottom: 20px; /* Add some spacing below the title */
 }
-
+label{
+    margin-bottom: 10px;
+    font-weight: bold;
+}
 form {
-    background-color: #ffcccc; /* Pink form background color */
+    background-color: #a6d1ff; /* Pink form background color */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    border: 2px solid black;
     width: 80%; /* Set the form width */
-    max-width: 400px; /* Limit the maximum width */
+    max-width: fit-content; /* Limit the maximum width */
     box-sizing: border-box;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 input[type="text"] {
     width: 100%;
     padding: 10px;
+    margin-top: 15px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -35,20 +40,26 @@ input[type="text"] {
 }
 
 input[type="submit"] {
-    background-color: #ff99cc; /* Lighter pink for submit button */
-    color: white;
+    background-color: #2a9ddc82; /* Lighter pink for submit button */
+    color: rgb(0, 0, 0);
     padding: 10px 20px;
     border: none;
+    justify-content: center;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
 }
 
 input[type="submit"]:hover {
-    background-color: #ff66b2; /* Darker pink on hover */
+    background-color: #3247ff; /* Darker pink on hover */
+    color: white;
 }
 
 p {
+    background: white;
     font-size: 18px;
+    font-weight: bold;
     margin-top: 20px;
+    padding: 15px;
+    border-radius: 15px;
 }
